@@ -8,9 +8,22 @@ regForm.addEventListener("submit", (e) => {
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
   let confirm = document.getElementById("confirm-password").value;
+  let confirmLabel = document.querySelector(".confirm");
+
+  if (password.length < 8) {
+    console.log("Password must be at least 8 characters long");
+    confirmLabel.classList.add("error");
+    confirmLabel.textContent = "Password must be at least 8 characters long!";
+
+    setTimeout(() => {
+      confirmLabel.classList.remove("error");
+      confirmLabel.textContent = "Enter Your Password";
+    }, 5000);
+    return;
+  }
+
   if (password !== confirm) {
     console.log(`${password} not equal ${confirm}`);
-    let confirmLabel = document.querySelector(".confirm");
     confirmLabel.classList.add("error");
     confirmLabel.textContent = "Make sure confirmation is same as password!";
 
