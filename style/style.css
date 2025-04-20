@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Fredoka:wght@300..700&display=swap");
+:root {
+  --primary-bg: #5da9e9; /* Sky blue background */
+  --secondary-bg: #f7f7f7; /* Light  card background */
+  --text-color: #333333; /* Default text color */
+  --button-hover: #ff4b5c; /* Main button (like Start!) */
+  --button-primary: #e63a4c; /* Hover state for button */
+  --correct-answer: #2ecc71; /* Green for correct */
+  --wrong-answer: #e74c3c; /* Red for wrong */
+  --quiz-card-border: #e0e0e0; /* Border for cards */
+  --accent-yellow: #ffcb05; /* Stars & highlights */
+  --white: #ffffff; /* Pure white for clouds, text */
+  --round: 25px;
+  --font-size: 1.3rem;
+  --font-large: 3.2rem;
+  --font-xlarge: 5rem;
+  --baloo: "Baloo 2", sans-serif;
+  --fredoka: "Fredoka", sans-serif;
+}
+/*  
+Poppins (Google Fonts)
+Baloo 2 (Rounded & friendly)
+Fredoka (soft, thick look)
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--primary-bg);
+}
+
+.container {
+  padding: 3rem;
+}
+.welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.title {
+  border-radius: var(--round);
+  background-color: var(--text-color);
+  color: white;
+  width: fit-content;
+  padding: 1rem 1.5rem;
+  font-size: var(--font-size);
+  font-family: var(--baloo);
+  font-weight: 800;
+}
+.welcomeText {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem 0rem;
+  span,
+  p {
+    font-size: var(--font-xlarge);
+    font-family: var(--fredoka);
+    font-weight: 800;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  span {
+    color: var(--accent-yellow);
+  }
+  p {
+    color: white;
+  }
+}
+.log-reg {
+  background-color: var(--button-primary);
+  border-radius: var(--round);
+  font-size: var(--font-size);
+  color: white;
+  cursor: pointer;
+  padding: 1rem;
+  transition: 0.3s;
+}
+.log-reg:hover {
+  scale: 1.1;
+  background-color: var(--button-hover);
+  transform: rotateZ(-5deg);
+}
