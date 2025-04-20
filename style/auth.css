@@ -83,3 +83,9 @@ button {
 .log:hover {
   background-color: white;
 }
+.error {
+  opacity: 1;
+  top: 1px;
+  color: var(--wrong-answer);
+  font-size: 0.9rem;
+}
