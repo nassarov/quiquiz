@@ -26,5 +26,15 @@ regForm.addEventListener("submit", (e) => {
         break;
       }
     }
+    if (exists) {
+      alert(`User with email ${email} already exists!`);
+      console.log(`Already exist ${email}`);
+    } else {
+      users.push({ email, password, role: "user" });
+      localStorage.setItem("users", JSON.stringify(users));
+      console.log(`Registration successful for ${email}`);
+      alert("Registration successful! It's time to Login...");
+      window.location.replace("../login.html");
+    }
   }
 });
