@@ -8,4 +8,15 @@ regForm.addEventListener("submit", (e) => {
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
   let confirm = document.getElementById("confirm-password").value;
+  if (password !== confirm) {
+    console.log(`${password} not equal ${confirm}`);
+    let confirmLabel = document.querySelector(".confirm");
+    confirmLabel.classList.add("error");
+    confirmLabel.textContent = "Make sure confirmation is same as password!";
+
+    setTimeout(() => {
+      confirmLabel.classList.remove("error");
+      confirmLabel.textContent = "Confirm Your Password";
+    }, 5000);
+  }
 });
