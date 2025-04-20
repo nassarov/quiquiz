@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuiQiz | Login</title>
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/auth.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="welcomeText">
+        <span>Login</span>
+        <p>Welcome back</p>
+      </div>
+      <form class="login-form">
+        <div class="cred">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            required
+            placeholder="Your Email"
+          /><label for="email">Your Email</label>
+        </div>
+        <div class="cred">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            required
+            placeholder="Your Password"
+          /><label for="password" class="passLabel">Your Password</label>
+        </div>
+        <div class="buttons">
+          <button type="submit" id="log-reg" class="reg">Login</button>
+          <button type="button" class="log">Register</button>
+        </div>
+      </form>
+    </div>
+    <script src="./js/login.js"></script>
+  </body>
+</html>
