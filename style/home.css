@@ -32,3 +32,25 @@ header h1 {
   width: 100%;
   margin: 0 auto;
 }
+.quiz-card {
+  background-color: var(--secondary-bg);
+  border-radius: var(--round);
+  border: 1px solid var(--quiz-card-border);
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-width: 260px;
+  max-width: 14rem;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+.quiz-card:hover {
+  scale: 1.05;
+}
+
+.quiz-card h2 {
+  font-family: var(--fredoka);
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: var(--font-size);
+}
