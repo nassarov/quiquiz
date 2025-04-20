@@ -65,7 +65,8 @@ body {
     color: white;
   }
 }
-#log-reg {
+#log-reg,
+.log {
   background-color: var(--button-primary);
   border-radius: var(--round);
   font-size: var(--font-size);
@@ -78,7 +79,8 @@ body {
   outline: 0;
   border: 0px;
 }
-#log-reg:hover {
+#log-reg:hover,
+.log:hover {
   scale: 1.1;
   background-color: var(--button-hover);
   transform: rotateZ(-5deg);
