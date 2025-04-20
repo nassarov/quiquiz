@@ -17,11 +17,6 @@
   --baloo: "Baloo 2", sans-serif;
   --fredoka: "Fredoka", sans-serif;
 }
-/*  
-Poppins (Google Fonts)
-Baloo 2 (Rounded & friendly)
-Fredoka (soft, thick look)
- */
 
 * {
   margin: 0;
@@ -43,7 +38,7 @@ body {
 }
 .title {
   border-radius: var(--round);
-  background-color: var(--text-color);
+  background-color: black;
   color: white;
   width: fit-content;
   padding: 1rem 1.5rem;
@@ -70,7 +65,7 @@ body {
     color: white;
   }
 }
-.log-reg {
+#log-reg {
   background-color: var(--button-primary);
   border-radius: var(--round);
   font-size: var(--font-size);
@@ -78,8 +73,10 @@ body {
   cursor: pointer;
   padding: 1rem;
   transition: 0.3s;
+  font-family: var(--fredoka);
+  font-weight: 800;
 }
-.log-reg:hover {
+#log-reg:hover {
   scale: 1.1;
   background-color: var(--button-hover);
   transform: rotateZ(-5deg);
