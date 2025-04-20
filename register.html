@@ -3,7 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register Account</title>
+    <title>QuiQiz | Register</title>
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/auth.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="welcomeText">
+        <span>Register</span>
+        <p>A New Account</p>
+      </div>
+      <form>
+        <div class="cred">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            required
+            placeholder="Your Email"
+          /><label for="email">Your Email</label>
+        </div>
+        <div class="cred">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            required
+            placeholder="Your Password"
+          /><label for="password">Your Password</label>
+        </div>
+        <div class="cred">
+          <input
+            type="password"
+            name="confirm-password"
+            id="confirm-password"
+            required
+            placeholder="Confirm Your Password"
+          /><label for="password">Confirm Your Password</label>
+        </div>
+        <button type="submit" id="log-reg">Create Account</button>
+      </form>
+    </div>
+  </body>
 </html>
