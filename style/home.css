@@ -54,3 +54,14 @@ header h1 {
   margin-bottom: 10px;
   font-size: var(--font-size);
 }
+
+.quiz-card .score {
+  margin-bottom: 0.5rem;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.quiz-card .score-value {
+  font-weight: bold;
+}
