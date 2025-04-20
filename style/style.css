@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Fredoka:wght@300..700&display=swap");
 :root {
-  --primary-bg: #5da9e9; /* Sky blue background */
+  --primary-bg: #57a0db; /* Sky blue background */
   --secondary-bg: #f7f7f7; /* Light  card background */
   --text-color: #333333; /* Default text color */
   --button-hover: #ff4b5c; /* Main button (like Start!) */
@@ -71,10 +71,12 @@ body {
   font-size: var(--font-size);
   color: white;
   cursor: pointer;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
   transition: 0.3s;
   font-family: var(--fredoka);
   font-weight: 800;
+  outline: 0;
+  border: 0px;
 }
 #log-reg:hover {
   scale: 1.1;
