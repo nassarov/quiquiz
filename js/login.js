@@ -21,6 +21,10 @@ loginForm.addEventListener("submit", (e) => {
 
   if (found) {
     alert(`Welcome back, ${email}!`);
+    // adding loggeduser to save its role
+    const loggedUser = { email, role: isAdmin ? "admin" : "user" };
+    localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
+
     if (isAdmin) {
       window.location.replace("../dashboard.html");
     } else {
