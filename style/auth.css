@@ -40,3 +40,14 @@ label {
   top: -30px;
   left: 10px;
 }
+input:focus + label {
+  top: -55px;
+  opacity: 1;
+}
+input:focus {
+  border: 0px;
+  border-bottom: 2px solid var(--accent-yellow);
+}
+input:focus::placeholder {
+  opacity: 0;
+}
