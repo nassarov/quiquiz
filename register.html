@@ -13,7 +13,7 @@
         <span>Register</span>
         <p>A New Account</p>
       </div>
-      <form>
+      <form class="reg-form">
         <div class="cred">
           <input
             type="email"
@@ -39,10 +39,14 @@
             id="confirm-password"
             required
             placeholder="Confirm Your Password"
-          /><label for="password">Confirm Your Password</label>
+          /><label for="password" class="confirm">Confirm Your Password</label>
         </div>
-        <button type="submit" id="log-reg">Create Account</button>
+        <div class="buttons">
+          <button type="submit" id="log-reg" class="reg">Create Account</button>
+          <button type="button" class="log">Login</button>
+        </div>
       </form>
     </div>
+    <script src="./js/auth.js"></script>
   </body>
 </html>
