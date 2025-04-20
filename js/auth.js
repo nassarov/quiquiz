@@ -36,5 +36,11 @@ regForm.addEventListener("submit", (e) => {
       alert("Registration successful! It's time to Login...");
       window.location.replace("../login.html");
     }
+    console.log(`status:${exists}`);
   }
+  console.log(localStorage.getItem("users"));
+});
+console.log(log);
+log.addEventListener("click", () => {
+  window.location.replace("../login.html");
 });
