@@ -18,5 +18,13 @@ regForm.addEventListener("submit", (e) => {
       confirmLabel.classList.remove("error");
       confirmLabel.textContent = "Confirm Your Password";
     }, 5000);
+  } else {
+    let exists = false;
+    for (let user of users) {
+      if (user.email === email) {
+        exists = true;
+        break;
+      }
+    }
   }
 });
