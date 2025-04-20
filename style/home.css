@@ -65,3 +65,19 @@ header h1 {
 .quiz-card .score-value {
   font-weight: bold;
 }
+
+.quiz-card .start-button {
+  background-color: var(--button-primary);
+  color: white;
+  font-family: var(--fredoka);
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--round);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.quiz-card .start-button:hover {
+  background-color: var(--button-hover);
+}
