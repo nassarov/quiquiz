@@ -68,7 +68,18 @@ input:focus::placeholder {
     font-size: var(--font-large);
   }
 }
+.buttons {
+  display: flex;
+  flex-flow: row wrap;
+}
 button {
   width: 40%;
   margin: 0 auto;
+}
+.log {
+  color: var(--accent-yellow);
+  background-color: white;
+}
+.log:hover {
+  background-color: white;
 }
