@@ -1,14 +1,21 @@
 let quizzes = JSON.parse(localStorage.getItem("quizzes"));
 const list = document.querySelector(".quiz-list");
-let results = JSON.parse(localStorage.getItem("results")) || []; //get score from result if exist
+let results = JSON.parse(localStorage.getItem("results")) || []; // get existing results
+const email = JSON.parse(localStorage.getItem("loggedUser")).email; // get user email
 
+console.log(email);
+console.log(results);
 console.log(quizzes[0].title);
 
-function getQuizScore(id) {
-  let quiz = results.find((res) => res.quizId == id);
+if (!email) {
+  window.location.replace("../login.html");
+}
+function getQuizScore(id, userEmail) {
+  let quiz = results.find((res) => res.quizId == id && res.user === userEmail);
   return quiz ? quiz.score : 0;
 }
-function createCard(title, score) {
+
+function createCard(title, score, quizId, userEmail) {
   let card = document.createElement("div");
   card.classList.add("quiz-card");
   card.innerHTML = `
@@ -17,10 +24,24 @@ function createCard(title, score) {
         <button class="start-button">Start Quiz</button>
       `;
   list.appendChild(card);
+  //  if quiz result already exists for the loggeduser
+  let exists = results.find(
+    (res) => res.quizId == quizId && res.user === userEmail
+  );
+  if (!exists) {
+    let newResult = {
+      user: userEmail,
+      quizId: quizId,
+      score: 0,
+    };
+    results.push(newResult);
+    localStorage.setItem("results", JSON.stringify(results));
+  }
 }
+
 quizzes.forEach((quiz) => {
-  let quizScore = getQuizScore(quiz.id);
-  createCard(quiz.title, quizScore);
+  let quizScore = getQuizScore(quiz.id, email);
+  createCard(quiz.title, quizScore, quiz.id, email);
 });
 const startButtons = document.querySelectorAll(".start-button");
 console.log(startButtons);
