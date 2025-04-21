@@ -81,3 +81,8 @@ header h1 {
 .quiz-card .start-button:hover {
   background-color: var(--button-hover);
 }
+.logout {
+  font-size: var(--font-size);
+  color: var(--accent-yellow);
+  cursor: pointer;
+}
