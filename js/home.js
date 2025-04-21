@@ -2,8 +2,14 @@ let quizzes = JSON.parse(localStorage.getItem("quizzes"));
 const list = document.querySelector(".quiz-list");
 let results = JSON.parse(localStorage.getItem("results")) || []; // get existing results
 const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+const logout = document.querySelector(".logout");
+// logout
+logout.addEventListener("click", () => {
+  localStorage.removeItem("loggedUser");
+  window.location.replace("../index.html");
+});
 if (!loggedUser) {
-  window.location.replace("../login.html");
+  window.location.replace("../index.html");
 }
 const email = JSON.parse(localStorage.getItem("loggedUser")).email; // get user email
 
