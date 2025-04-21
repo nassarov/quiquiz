@@ -45,4 +45,15 @@ function checkAndSubmit(btn, selectedOption, correctAnswer, allOptions) {
   console.log(btn, selectedOption, correctAnswer, "SUBMT");
   allOptions.forEach((btn) => (btn.disabled = true));
   submit.disabled = true;
+  if (selectedOption === correctAnswer) {
+    btn.classList.add("correct");
+  } else {
+    btn.classList.add("wrong");
+    allOptions.forEach((btn) => {
+      if (btn.innerText === correctAnswer) btn.classList.add("correct");
+    });
+  }
+  questionIndex++;
+  displayQuestion();
 }
+window.onload(displayQuestion());
