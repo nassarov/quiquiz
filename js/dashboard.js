@@ -22,4 +22,10 @@ function buildTable() {
         <th>Quiz Scores</th>
       </tr>
   `;
+
+  users.forEach((user) => {
+    const userResults = results.filter((r) => r.user === user.email);
+    console.log(userResults);
+  });
 }
+buildTable();
