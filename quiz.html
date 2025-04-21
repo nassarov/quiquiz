@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/quiz.css" />
     <title>Quiz Time</title>
   </head>
   <body>
@@ -10,14 +12,10 @@
       <div class="timer">
         <span id="timer">00:10</span>
       </div>
-      <h1 class="question">question here</h1>
-      <div class="options-container">
-        <button type="button" class="option">Answer 1</button>
-        <button type="button" class="option">Answer 2</button>
-        <button type="button" class="option">Answer 3</button>
-        <button type="button" class="option">Answer 4</button>
-      </div>
-      <button type="button" class="submit">Submit Answer</button>
+      <h1 class="question"></h1>
+      <div class="options-container" id="container"></div>
+      <button type="button" class="submit" id="log-reg">Submit Answer</button>
     </form>
+    <script src="./js/quiz.js"></script>
   </body>
 </html>
