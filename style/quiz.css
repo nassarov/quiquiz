@@ -80,13 +80,25 @@ body {
   background-color: var(--wrong-answer);
   font-weight: 700;
 }
+.option.correct:disabled:hover {
+  background-color: var(--correct-answer);
+  font-weight: 700;
+}
+.option.selected.wrong:disabled:hover {
+  background-color: var(--wrong-answer);
+  font-weight: 700;
+}
 .submit {
   margin-top: 15px;
+  transition: 0.3s ease-in;
+}
+.submit.hidden {
+  opacity: 0 !important;
 }
 .option:disabled,
 .submit:disabled {
-  opacity: 0.9;
-  cursor: not-allowed;
+  opacity: 0.9 !important;
+  cursor: not-allowed !important;
 }
 .option:disabled:hover {
   scale: 1;
