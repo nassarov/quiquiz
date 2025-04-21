@@ -8,17 +8,40 @@
   }
 }
 button {
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: var(--font-size);
   padding: 10px 20px;
   margin-top: 10px;
   background-color: #0056b3;
   color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: var(--font-size);
   transition: 0.3s;
 }
 button:hover {
   background-color: #007bff;
   scale: 1.05;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  font-family: var(--baloo);
+}
+th {
+  background-color: var(--accent-yellow);
+  color: white;
+  font-weight: 800;
+  font-size: var(--font-size);
+}
+td {
+  color: var(--text-color);
+  background-color: white;
 }
