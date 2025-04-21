@@ -36,7 +36,19 @@ function buildTable() {
       scores = "No quizzes for this user";
     }
     console.log(scores);
+
+    const role = user.email === "admin@quiz.com" ? "admin" : "user";
+    table += `
+      <tr>
+        <td>${user.email}</td>
+        <td>${role}</td>
+        <td>${scores}</td>
+      </tr>
+    `;
   });
+  table += `</table>`;
+  container.innerHTML = table;
 }
 
 buildTable();
+refreshButton.addEventListener("click", buildTable);
