@@ -15,3 +15,14 @@ function createCard(title, score) {
 quizzes.forEach((quiz) => {
   createCard(quiz.title, quiz.score);
 });
+const startButtons = document.querySelectorAll(".start-button");
+console.log(startButtons);
+startButtons.forEach((button, index) => {
+  button.addEventListener("click", () => {
+    let quiz = quizzes[index];
+    console.log(quiz);
+    let selected = quiz.id;
+    localStorage.setItem("selectedQuiz", selected);
+    window.location.href("../quiz.html");
+  });
+});
