@@ -23,6 +23,6 @@ startButtons.forEach((button, index) => {
     console.log(quiz);
     let selected = quiz.id;
     localStorage.setItem("selectedQuiz", selected);
-    window.location.href("../quiz.html");
+    window.location.href = "../quiz.html";
   });
 });
