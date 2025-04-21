@@ -1,0 +1,9 @@
+.container {
+  padding: 1rem;
+}
+.welcomeText {
+  margin: 0;
+  p {
+    font-size: 2rem;
+  }
+}
