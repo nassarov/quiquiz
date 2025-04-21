@@ -72,6 +72,7 @@ function displayQuestion() {
     container.innerHTML = "";
     submitButton.style.display = "none";
     clearInterval(timerInterval);
+    console.log(`${score}/3`);
     let result = {
       user: email,
       quizId: selectedId,
@@ -106,13 +107,17 @@ function checkAndSubmit() {
     if (btn.dataset.answer === correctAnswer) {
       // check dataset for the selected button
       btn.classList.add("correct");
-      score++;
     }
     if (
       btn.dataset.answer === selectedOption && // loop over all button when dataset = selected and answer is false make it wrong
       selectedOption !== correctAnswer
     ) {
       btn.classList.add("wrong");
+    } else if (
+      (btn.dataset.answer === selectedOption && selectedOption) ===
+      correctAnswer
+    ) {
+      score++;
     }
   });
 
