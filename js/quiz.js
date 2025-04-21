@@ -72,7 +72,7 @@ function displayQuestion() {
     });
     startTimer();
   } else {
-    questionElement.innerText = "Quiz Finished!";
+    questionElement.innerHTML = `<h1>Quiz Finished!<h1><h2>Your Score:${score}/3<h2>`;
     container.innerHTML = "";
     submitButton.style.display = "none";
     clearInterval(timerInterval);
