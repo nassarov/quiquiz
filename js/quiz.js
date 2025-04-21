@@ -1,7 +1,9 @@
 let selectedId = localStorage.getItem("selectedQuiz");
 const container = document.getElementById("container");
 const form = document.getElementById("quiz-form");
-const submit = document.getElementById("log-reg");
+const submitButton = document.getElementById("log-reg");
+const questionElement = document.querySelector(".question");
+const timerElement = document.getElementById("timer");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 });
@@ -10,50 +12,102 @@ let quizzes = JSON.parse(localStorage.getItem("quizzes"));
 let currentQuiz = quizzes.find((quiz) => quiz.id == selectedId);
 
 let questionIndex = 0;
+let selectedOption = null;
+let correctAnswer = null;
+let allOptionsButtons = [];
+let timerInterval;
+let seconds = 9;
+let submitted = false;
+
+function startTimer() {
+  clearInterval(timerInterval); // stop prev timer
+  seconds = 9; //reset back to 9
+  updateTimer();
+  timerInterval = setInterval(() => {
+    seconds--;
+    updateTimer();
+    if (seconds == 0) {
+      clearInterval(timerInterval);
+      checkAndSubmit();
+    }
+  }, 1000);
+}
+function updateTimer() {
+  const time = `00:0${seconds}`;
+  timerElement.textContent = time;
+}
 
 function displayQuestion() {
-  submit.classList.add("hidden");
-  let questionContent = currentQuiz.questions[questionIndex];
-  let questionTitle = questionContent.question;
-  console.log(questionTitle);
-  let question = document.querySelector(".question");
-  question.innerText = questionTitle;
-  questionContent.options.forEach((option) => {
-    let button = document.createElement("button");
-    button.classList.add("option");
-    button.innerText = option;
-    button.addEventListener("click", () => {
-      submit.classList.remove("hidden");
-      selectedAnswer(button, option, questionContent.answer);
+  container.innerHTML = ""; //clear old form
+  submitButton.disabled = true;
+  selectedOption = null;
+  submitted = false; // reset
+
+  if (questionIndex < currentQuiz.questions.length) {
+    const questionContent = currentQuiz.questions[questionIndex];
+    console.log(questionContent);
+    questionElement.innerText = questionContent.question;
+    correctAnswer = questionContent.answer;
+    allOptionsButtons = []; //suggested by ai to achieve good result
+    questionContent.options.forEach((option) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.classList.add("option");
+      button.innerText = option;
+      button.dataset.answer = option; //use dataset for each button
+      button.addEventListener("click", () => {
+        handleOptionSelect(button, option);
+      });
+      container.appendChild(button);
+      allOptionsButtons.push(button);
+      console.log(allOptionsButtons);
     });
-    container.appendChild(button);
-  });
-}
-function selectedAnswer(btn, selectedOption, correctAnswer) {
-  console.log(btn, selectedOption, correctAnswer);
-  let allOptions = document.querySelectorAll(".option");
-  console.log(allOptions);
-  allOptions.forEach((btn) => btn.classList.remove("selected"));
-  btn.classList.add("selected");
-  submit.disabled = false;
-  submit.addEventListener("click", () => {
-    checkAndSubmit(btn, selectedOption, correctAnswer, allOptions);
-  });
+    startTimer();
+  } else {
+    questionElement.innerText = "Quiz Finished!";
+    container.innerHTML = "";
+    submitButton.style.display = "none";
+    clearInterval(timerInterval);
+    // end
+  }
 }
 
-function checkAndSubmit(btn, selectedOption, correctAnswer, allOptions) {
-  console.log(btn, selectedOption, correctAnswer, "SUBMT");
-  allOptions.forEach((btn) => (btn.disabled = true));
-  submit.disabled = true;
-  if (selectedOption === correctAnswer) {
-    btn.classList.add("correct");
-  } else {
-    btn.classList.add("wrong");
-    allOptions.forEach((btn) => {
-      if (btn.innerText === correctAnswer) btn.classList.add("correct");
-    });
-  }
-  questionIndex++;
-  displayQuestion();
+function handleOptionSelect(button, option) {
+  if (submitted) return; // if asnwer were already submitted
+
+  container.querySelectorAll(".option.selected").forEach((btn) => {
+    btn.classList.remove("selected");
+  });
+
+  button.classList.add("selected");
+  selectedOption = option;
+  submitButton.disabled = false; //renable submit
 }
-window.onload(displayQuestion());
+
+function checkAndSubmit() {
+  if (!selectedOption && seconds == 0) {
+    selectedOption = ""; // Treat no selection as an answer
+  }
+  submitted = true;
+  clearInterval(timerInterval);
+  allOptionsButtons.forEach((btn) => {
+    btn.disabled = true;
+    if (btn.dataset.answer === correctAnswer) {
+      // check dataset for the selected button
+      btn.classList.add("correct");
+    }
+    if (
+      btn.dataset.answer === selectedOption && // loop over all button when dataset = selected and answer is false make it wrong
+      selectedOption !== correctAnswer
+    ) {
+      btn.classList.add("wrong");
+    }
+  });
+
+  setTimeout(() => {
+    questionIndex++;
+    displayQuestion();
+  }, 2000);
+}
+submitButton.addEventListener("click", checkAndSubmit);
+window.onload = displayQuestion;
