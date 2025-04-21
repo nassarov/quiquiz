@@ -36,3 +36,29 @@ body {
   text-align: center;
   text-shadow: 4px 6px 10px rgba(0, 0, 0, 0.7);
 }
+
+.options-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.option {
+  border: 0;
+  border-radius: 12px;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: 0.2s ease-in-out;
+  width: 90%;
+  justify-self: center;
+  cursor: pointer;
+  color: var(--text-color);
+}
+.option:hover {
+  scale: 1.03;
+  background-color: var(--accent-yellow);
+  font-weight: 700;
+}
