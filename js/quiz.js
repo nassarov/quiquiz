@@ -72,7 +72,10 @@ function displayQuestion() {
     });
     startTimer();
   } else {
-    questionElement.innerHTML = `<h1>Quiz Finished!<h1><h2>Your Score:${score}/3<h2>`;
+    questionElement.innerHTML =
+      score !== 0
+        ? `<h1>Quiz Finished!<h1><h2>Your Score:${score}/3<h2>`
+        : `<h1>Hard Luck!<h1><h2>Your Score:${score}/3<h2>`;
     container.innerHTML = "";
     submitButton.style.display = "none";
     clearInterval(timerInterval);
