@@ -1,15 +1,16 @@
 let quizzes = JSON.parse(localStorage.getItem("quizzes"));
 const list = document.querySelector(".quiz-list");
 let results = JSON.parse(localStorage.getItem("results")) || []; // get existing results
+const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+if (!loggedUser) {
+  window.location.replace("../login.html");
+}
 const email = JSON.parse(localStorage.getItem("loggedUser")).email; // get user email
 
 console.log(email);
 console.log(results);
 console.log(quizzes[0].title);
 
-if (!email) {
-  window.location.replace("../login.html");
-}
 function getQuizScore(id, userEmail) {
   let quiz = results.find((res) => res.quizId == id && res.user === userEmail);
   return quiz ? quiz.score : 0;
