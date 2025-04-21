@@ -73,15 +73,24 @@ function displayQuestion() {
     submitButton.style.display = "none";
     clearInterval(timerInterval);
     console.log(`${score}/3`);
-    let result = {
-      user: email,
-      quizId: selectedId,
-      score: score,
-    };
-    localStorage.setItem("results", JSON.stringify(result));
+    let existingResults = JSON.parse(localStorage.getItem("results")) || [];
+    let index = existingResults.findIndex(
+      (res) => res.quizId == selectedId && res.user == email
+    );
+
+    if (index !== -1) {
+      existingResults[index].score = score; // update if exists
+    } else {
+      existingResults.push({
+        user: email,
+        quizId: selectedId,
+        score: score,
+      });
+    }
+    localStorage.setItem("results", JSON.stringify(existingResults));
     setTimeout(() => {
       window.location.replace("../home.html");
-    }, 2500);
+    }, 1500);
   }
 }
 
