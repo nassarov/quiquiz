@@ -81,7 +81,7 @@ function displayQuestion() {
     localStorage.setItem("results", JSON.stringify(result));
     setTimeout(() => {
       window.location.replace("../home.html");
-    }, 2000);
+    }, 2500);
   }
 }
 
