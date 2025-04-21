@@ -4,6 +4,10 @@ const form = document.getElementById("quiz-form");
 const submitButton = document.getElementById("log-reg");
 const questionElement = document.querySelector(".question");
 const timerElement = document.getElementById("timer");
+const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+if (!loggedUser) {
+  window.location.replace("../login.html");
+}
 let email = JSON.parse(localStorage.getItem("loggedUser")).email;
 
 form.addEventListener("submit", (e) => {
