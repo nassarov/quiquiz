@@ -6,7 +6,7 @@ const questionElement = document.querySelector(".question");
 const timerElement = document.getElementById("timer");
 const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
 if (!loggedUser) {
-  window.location.replace("../login.html");
+  window.location.replace("../index.html");
 }
 let email = JSON.parse(localStorage.getItem("loggedUser")).email;
 
