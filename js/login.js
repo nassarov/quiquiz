@@ -26,9 +26,9 @@ loginForm.addEventListener("submit", (e) => {
     localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
 
     if (isAdmin) {
-      window.location.replace("../dashboard.html");
+      window.location.replace("/quiquiz/dashboard.html");
     } else {
-      window.location.replace("../home.html");
+      window.location.replace("/quiquiz/home.html");
     }
   } else {
     console.log("Incorrect email or password!");
@@ -41,5 +41,5 @@ loginForm.addEventListener("submit", (e) => {
   }
 });
 log.addEventListener("click", () => {
-  window.location.replace("../register.html");
+  window.location.replace("/quiquiz/register.html");
 });
