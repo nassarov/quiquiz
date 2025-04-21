@@ -6,10 +6,10 @@ const logout = document.querySelector(".logout");
 // logout
 logout.addEventListener("click", () => {
   localStorage.removeItem("loggedUser");
-  window.location.replace("../index.html");
+  window.location.replace("/quiquiz/index.html");
 });
 if (!loggedUser) {
-  window.location.replace("../index.html");
+  window.location.replace("/quiquiz/index.html");
 }
 const email = JSON.parse(localStorage.getItem("loggedUser")).email; // get user email
 
@@ -58,6 +58,6 @@ startButtons.forEach((button, index) => {
     console.log(quiz);
     let selected = quiz.id;
     localStorage.setItem("selectedQuiz", selected);
-    window.location.href = "../quiz.html";
+    window.location.href = "/quiquiz/quiz.html";
   });
 });

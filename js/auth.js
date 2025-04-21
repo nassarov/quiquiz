@@ -47,7 +47,7 @@ regForm.addEventListener("submit", (e) => {
       localStorage.setItem("users", JSON.stringify(users));
       console.log(`Registration successful for ${email}`);
       alert("Registration successful! It's time to Login...");
-      window.location.replace("../login.html");
+      window.location.replace("/quiquiz/login.html");
     }
     console.log(`status:${exists}`);
   }
@@ -55,5 +55,5 @@ regForm.addEventListener("submit", (e) => {
 });
 console.log(log);
 log.addEventListener("click", () => {
-  window.location.replace("../login.html");
+  window.location.replace("/quiquiz/login.html");
 });

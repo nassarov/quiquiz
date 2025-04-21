@@ -6,7 +6,7 @@ const questionElement = document.querySelector(".question");
 const timerElement = document.getElementById("timer");
 const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
 if (!loggedUser) {
-  window.location.replace("../index.html");
+  window.location.replace("/quiquiz/index.html");
 }
 let email = JSON.parse(localStorage.getItem("loggedUser")).email;
 
@@ -96,7 +96,7 @@ function displayQuestion() {
     }
     localStorage.setItem("results", JSON.stringify(existingResults));
     setTimeout(() => {
-      window.location.replace("../home.html");
+      window.location.replace("/quiquiz/home.html");
     }, 1500);
   }
 }
