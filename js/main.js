@@ -1,7 +1,7 @@
 const logButton = document.getElementById("log-reg");
 console.log(logButton);
 logButton.addEventListener("click", () => {
-  window.location.href = "../register.html";
+  window.location.href = "/register.html";
 });
 
 // check first if users exist
