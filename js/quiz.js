@@ -40,3 +40,9 @@ function selectedAnswer(btn, selectedOption, correctAnswer) {
     checkAndSubmit(btn, selectedOption, correctAnswer, allOptions);
   });
 }
+
+function checkAndSubmit(btn, selectedOption, correctAnswer, allOptions) {
+  console.log(btn, selectedOption, correctAnswer, "SUBMT");
+  allOptions.forEach((btn) => (btn.disabled = true));
+  submit.disabled = true;
+}
