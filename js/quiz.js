@@ -79,7 +79,9 @@ function displayQuestion() {
       score: score,
     };
     localStorage.setItem("results", JSON.stringify(result));
-    window.location.replace = "../home.html";
+    setTimeout(() => {
+      window.location.replace("../home.html");
+    }, 2000);
   }
 }
 
