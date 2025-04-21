@@ -4,6 +4,8 @@ const form = document.getElementById("quiz-form");
 const submitButton = document.getElementById("log-reg");
 const questionElement = document.querySelector(".question");
 const timerElement = document.getElementById("timer");
+let email = JSON.parse(localStorage.getItem("loggedUser")).email;
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 });
@@ -18,6 +20,8 @@ let allOptionsButtons = [];
 let timerInterval;
 let seconds = 9;
 let submitted = false;
+
+let score = 0;
 
 function startTimer() {
   clearInterval(timerInterval); // stop prev timer
@@ -68,7 +72,13 @@ function displayQuestion() {
     container.innerHTML = "";
     submitButton.style.display = "none";
     clearInterval(timerInterval);
-    // end
+    let result = {
+      user: email,
+      quizId: selectedId,
+      score: score,
+    };
+    localStorage.setItem("results", JSON.stringify(result));
+    window.location.replace = "../home.html";
   }
 }
 
@@ -96,6 +106,7 @@ function checkAndSubmit() {
     if (btn.dataset.answer === correctAnswer) {
       // check dataset for the selected button
       btn.classList.add("correct");
+      score++;
     }
     if (
       btn.dataset.answer === selectedOption && // loop over all button when dataset = selected and answer is false make it wrong
