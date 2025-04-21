@@ -10,3 +10,10 @@ let quizzes = JSON.parse(localStorage.getItem("quizzes"));
 let currentQuiz = quizzes.find((quiz) => quiz.id == selectedId);
 
 let questionIndex = 0;
+
+function displayQuestion() {
+  submit.classList.add("hidden");
+  let questionContent = currentQuiz.questions[questionIndex];
+  let questionTitle = questionContent.question;
+  console.log(questionTitle);
+}
