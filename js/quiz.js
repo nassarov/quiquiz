@@ -16,4 +16,16 @@ function displayQuestion() {
   let questionContent = currentQuiz.questions[questionIndex];
   let questionTitle = questionContent.question;
   console.log(questionTitle);
+  let question = document.querySelector(".question");
+  question.innerText = questionTitle;
+  questionContent.options.forEach((option) => {
+    let button = document.createElement("button");
+    button.classList.add("option");
+    button.innerText = option;
+    button.addEventListener("click", () => {
+      submit.classList.remove("hidden");
+      selectedAnswer(button, option, questionContent.answer);
+    });
+    container.appendChild(button);
+  });
 }
