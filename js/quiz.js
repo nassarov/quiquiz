@@ -29,3 +29,14 @@ function displayQuestion() {
     container.appendChild(button);
   });
 }
+function selectedAnswer(btn, selectedOption, correctAnswer) {
+  console.log(btn, selectedOption, correctAnswer);
+  let allOptions = document.querySelectorAll(".option");
+  console.log(allOptions);
+  allOptions.forEach((btn) => btn.classList.remove("selected"));
+  btn.classList.add("selected");
+  submit.disabled = false;
+  submit.addEventListener("click", () => {
+    checkAndSubmit(btn, selectedOption, correctAnswer, allOptions);
+  });
+}
