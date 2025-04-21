@@ -80,3 +80,21 @@ body {
   background-color: var(--wrong-answer);
   font-weight: 700;
 }
+.submit {
+  margin-top: 15px;
+}
+.option:disabled,
+.submit:disabled {
+  opacity: 0.9;
+  cursor: not-allowed;
+}
+.option:disabled:hover {
+  scale: 1;
+  background-color: rgba(255, 255, 255, 0.416);
+  font-weight: 400;
+  color: var(--text-color);
+}
+.finished {
+  background-color: var(--wrong-answer);
+  color: white;
+}
