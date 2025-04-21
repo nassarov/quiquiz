@@ -11,3 +11,5 @@ if (!loggedUser) {
 
 const container = document.getElementById("users-table");
 const refreshButton = document.getElementById("refresh-btn");
+let users = JSON.parse(localStorage.getItem("users"));
+let results = JSON.parse(localStorage.getItem("results"));
