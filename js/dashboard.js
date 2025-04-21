@@ -26,6 +26,17 @@ function buildTable() {
   users.forEach((user) => {
     const userResults = results.filter((r) => r.user === user.email);
     console.log(userResults);
+
+    let scores;
+    if (userResults.length > 0) {
+      scores = userResults
+        .map((result) => `Quiz(${result.quizId}): ${result.score}/3`)
+        .join("<br>"); // join elements with br to be on diff erent line
+    } else {
+      scores = "No quizzes for this user";
+    }
+    console.log(scores);
   });
 }
+
 buildTable();
