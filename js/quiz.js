@@ -89,6 +89,7 @@ function checkAndSubmit() {
     selectedOption = ""; // Treat no selection as an answer
   }
   submitted = true;
+  submitButton.disabled = true; // fixing the bug of submit as user kkeeps clicking
   clearInterval(timerInterval);
   allOptionsButtons.forEach((btn) => {
     btn.disabled = true;
