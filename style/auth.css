@@ -2,12 +2,14 @@
   padding: 0;
 }
 form {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   border-radius: var(--round);
   padding: 2rem 0 1rem 0;
   justify-self: center;
-  width: 50%;
+  width: 90%;
+  max-width: 600px;
   font-family: var(--baloo);
   box-shadow: 5px 5px 10px;
 }
@@ -88,4 +90,60 @@ button {
   top: 1px;
   color: var(--wrong-answer);
   font-size: 0.9rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .welcomeText span {
+    font-size: var(--font-large);
+  }
+  .welcomeText p {
+    font-size: var(--font-small);
+  }
+  .welcomeText {
+    margin-bottom: 1rem;
+  }
+  button,
+  #log-reg {
+    width: 80%;
+    margin-bottom: 1rem;
+  }
+  .log {
+    padding: 0.75rem 1.25rem;
+  }
+  .error {
+    font-size: 0.7rem;
+  }
+  label {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  form {
+    padding: 1.5rem 1rem;
+  }
+  .cred {
+    width: 100%;
+  }
+  label {
+    font-size: 0.7rem;
+  }
+  .buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  button,
+  #log-reg {
+    width: 100%;
+    margin-bottom: 0;
+    font-size: var(--font-small);
+  }
+  .log {
+    padding: 0.75rem 1.25rem;
+    font-size: var(--font-small);
+  }
+  .error {
+    font-size: 0.7rem;
+  }
 }
