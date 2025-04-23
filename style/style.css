@@ -90,6 +90,13 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
+  #log-reg:hover,
+  .log:hover {
+    scale: 1;
+    background-color: var(--button-hover);
+    transform: rotateZ(0deg);
+  }
+
   .welcomeText span,
   .welcomeText p {
     font-size: var(--font-large);
