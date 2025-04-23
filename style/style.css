@@ -1,17 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Fredoka:wght@300..700&display=swap");
 :root {
-  --primary-bg: #57a0db; /* Sky blue background */
-  --secondary-bg: #f7f7f7; /* Light  card background */
-  --text-color: #333333; /* Default text color */
-  --button-hover: #ff4b5c; /* Main button (like Start!) */
-  --button-primary: #e63a4c; /* Hover state for button */
-  --correct-answer: #2ecc71; /* Green for correct */
-  --wrong-answer: #e74c3c; /* Red for wrong */
-  --quiz-card-border: #e0e0e0; /* Border for cards */
-  --accent-yellow: #ffcb05; /* Stars & highlights */
-  --white: #ffffff; /* Pure white for clouds, text */
+  --primary-bg: #57a0db; /*sky*/
+  --secondary-bg: #f7f7f7; /*cloud*/
+  --text-color: #333333;
+  --button-hover: #ff4b5c;
+  --button-primary: #e63a4c;
+  --correct-answer: #2ecc71;
+  --wrong-answer: #e74c3c;
+  --quiz-card-border: #e0e0e0;
+  --accent-yellow: #ffcb05;
+  --white: #ffffff;
   --round: 25px;
   --font-size: 1.3rem;
+  --font-small: 1rem;
   --font-large: 3.2rem;
   --font-xlarge: 5rem;
   --baloo: "Baloo 2", sans-serif;
@@ -85,4 +86,40 @@ body {
   scale: 1.1;
   background-color: var(--button-hover);
   transform: rotateZ(-5deg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .welcomeText span,
+  .welcomeText p {
+    font-size: var(--font-large);
+  }
+  .title {
+    font-size: var(--font-small);
+    padding: 0.75rem 1.25rem;
+  }
+  #log-reg {
+    font-size: var(--font-small);
+    padding: 0.75rem 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcomeText span,
+  .welcomeText p {
+    text-align: center;
+  }
+  .welcomeText span {
+    display: block;
+  }
+  .container {
+    padding: 1rem;
+  }
+  .title {
+    font-size: var(--font-small);
+  }
+  #log-reg {
+    width: 80%;
+    max-width: 250px;
+  }
 }
