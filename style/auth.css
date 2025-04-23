@@ -24,6 +24,7 @@ form input {
   width: 100%;
   font-size: 1rem;
   border-radius: var(--round);
+  z-index: 1;
 }
 input::placeholder {
   color: white;
