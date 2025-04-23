@@ -86,3 +86,48 @@ header h1 {
   color: var(--accent-yellow);
   cursor: pointer;
 }
+
+/* Respomsive */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  header h1 {
+    font-size: var(--font-large);
+  }
+  .quiz-list {
+    gap: 12px;
+  }
+  .quiz-card h2 {
+    font-size: var(--font-size);
+  }
+  .quiz-card .score {
+    font-size: var(--font-small);
+  }
+  .logout {
+    font-size: var(--font-small);
+  }
+}
+
+@media (min-width: 480px) {
+  header {
+    max-width: 300px;
+  }
+  header h1 {
+    font-size: var(--font-large);
+  }
+  .quiz-list {
+    gap: 12px;
+  }
+  .quiz-card h2 {
+    font-size: var(--font-size);
+  }
+  .quiz-card .score {
+    font-size: var(--font-small);
+  }
+
+  .logout {
+    font-size: var(--font-small);
+  }
+}
