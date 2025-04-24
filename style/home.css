@@ -119,6 +119,7 @@ header h1 {
   }
   .quiz-list {
     gap: 12px;
+    padding: 0;
   }
   .quiz-card h2 {
     font-size: var(--font-size);
