@@ -110,6 +110,37 @@ body {
   background-color: var(--wrong-answer);
   color: white;
 }
+.ending {
+  animation-name: ending;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+/* Animation */
+@keyframes ending {
+  0% {
+    background-color: var(--wrong-answer);
+    scale: 1.1;
+  }
+  25% {
+    background-color: white;
+    color: var(--text-color);
+    scale: 1;
+  }
+  50% {
+    background-color: var(--wrong-answer);
+    scale: 1.1;
+  }
+  75% {
+    background-color: white;
+    color: var(--text-color);
+    scale: 1;
+  }
+  100% {
+    background-color: var(--wrong-answer);
+    scale: 1.1;
+  }
+}
 /* Responsive */
 @media (max-width: 480px) {
   .quiz-card {
