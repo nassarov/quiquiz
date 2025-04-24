@@ -4,6 +4,7 @@ const form = document.getElementById("quiz-form");
 const submitButton = document.getElementById("log-reg");
 const questionElement = document.querySelector(".question");
 const timerElement = document.getElementById("timer");
+const timerContainer = document.querySelector(".timer");
 const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
 if (!loggedUser) {
   window.location.replace("/quiquiz/index.html");
@@ -34,8 +35,12 @@ function startTimer() {
   timerInterval = setInterval(() => {
     seconds--;
     updateTimer();
+    if (seconds < 5) {
+      timerContainer.classList.add("ending");
+    }
     if (seconds == 0) {
       clearInterval(timerInterval);
+      timerContainer.classList.remove("ending");
       checkAndSubmit();
     }
   }, 1000);
