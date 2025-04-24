@@ -24,7 +24,6 @@ form input {
   width: 100%;
   font-size: 1rem;
   border-radius: var(--round);
-  z-index: 1;
 }
 input::placeholder {
   color: white;
@@ -128,6 +127,9 @@ button {
 @media (max-width: 480px) {
   form {
     padding: 1.5rem 1rem;
+  }
+  form input {
+    z-index: 1;
   }
   .cred {
     width: 100%;
