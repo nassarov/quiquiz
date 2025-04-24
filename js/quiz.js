@@ -31,6 +31,7 @@ let score = 0;
 function startTimer() {
   clearInterval(timerInterval); // stop prev timer
   seconds = 9; //reset back to 9
+  timerContainer.classList.remove("ending");
   updateTimer();
   timerInterval = setInterval(() => {
     seconds--;
