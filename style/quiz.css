@@ -110,3 +110,30 @@ body {
   background-color: var(--wrong-answer);
   color: white;
 }
+/* Responsive */
+@media (max-width: 480px) {
+  .quiz-card {
+    padding: 1rem 1rem;
+    min-height: 100vh;
+    margin-top: 0;
+    min-width: 90%;
+  }
+  .timer {
+    padding: 0.5rem 1rem;
+  }
+  #timer {
+    font-size: var(--font-small);
+  }
+  .question {
+    font-size: var(--font-size);
+    margin-bottom: 1rem;
+  }
+  .options-container {
+    grid-template-columns: 1fr; /*one on eahc row */
+    gap: 1rem;
+  }
+  .option {
+    padding: 1rem;
+    font-size: var(--font-small);
+  }
+}
