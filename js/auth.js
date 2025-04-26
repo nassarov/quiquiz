@@ -1,13 +1,11 @@
 const log = document.querySelector(".log");
 const regForm = document.querySelector(".reg-form");
 console.log(regForm);
-let users = JSON.parse(localStorage.getItem("users")) || [];
-console.log(users);
-regForm.addEventListener("submit", (e) => {
+regForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  let email = document.getElementById("email").value;
-  let password = document.getElementById("password").value;
-  let confirm = document.getElementById("confirm-password").value;
+  let email = document.getElementById("email").value.trim();
+  let password = document.getElementById("password").value.trim();
+  let confirm = document.getElementById("confirm-password").value.trim();
   let confirmLabel = document.querySelector(".confirm");
 
   if (password.length < 8) {
