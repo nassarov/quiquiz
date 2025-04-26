@@ -1,45 +1,46 @@
+import { url } from "./consts.js";
 const log = document.querySelector(".log");
 const loginForm = document.querySelector(".login-form");
-let users = JSON.parse(localStorage.getItem("users")) || [];
 
-loginForm.addEventListener("submit", (e) => {
+loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
   let passwordLabel = document.querySelector(".passLabel");
-  let isAdmin = false;
-  let found = false;
-  users.forEach((user) => {
-    if (user.email === email && user.password === password) {
-      found = true;
-      if (user.email === "admin@quiz.com" && user.password === "admin123") {
-        isAdmin = true;
+
+  try {
+    const response = await fetch(`${url}/quiquiz/api/login.php`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
+    const data = await response.json();
+    if (data.status === "success") {
+      alert(data.message);
+      window.localStorage.setItem("loggedUser", data.user.email);
+      if (data.user.role === "admin") {
+        window.location.replace(`${url}/quiquiz/dashboard.html`);
+      } else {
+        window.location.replace(`${url}/quiquiz/quiz.html`);
       }
-    }
-  });
-
-  if (found) {
-    alert(`Welcome back, ${email}!`);
-    // adding loggeduser to save its role
-    const loggedUser = { email, role: isAdmin ? "admin" : "user" };
-    localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
-
-    if (isAdmin) {
-      window.location.replace("/quiquiz/dashboard.html");
     } else {
-      window.location.replace("/quiquiz/home.html");
+      // wrong cred
+      passwordLabel.classList.add("error");
+      passwordLabel.textContent = data.message;
+      setTimeout(() => {
+        passwordLabel.classList.remove("error");
+        passwordLabel.textContent = "Your Password";
+      }, 5000);
     }
-  } else {
-    console.log("Incorrect email or password!");
-    passwordLabel.classList.add("error");
-    passwordLabel.textContent = "Wrong credentials!";
-    setTimeout(() => {
-      passwordLabel.classList.remove("error");
-      passwordLabel.textContent = "Your Password";
-    }, 5000);
+  } catch (error) {
+    console.log("Error: ", error);
+    alert("Something Went Wrong. Try Again!");
   }
 });
+
 log.addEventListener("click", () => {
-  window.location.replace("/quiquiz/register.html");
+  window.location.replace("/register.html");
 });
