@@ -1,3 +1,4 @@
+import { url } from "./consts.js";
 const log = document.querySelector(".log");
 const regForm = document.querySelector(".reg-form");
 console.log(regForm);
