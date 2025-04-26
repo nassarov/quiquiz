@@ -12,7 +12,16 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
         if(mysqli_num_rows($result) > 0){
             echo json_encode(["status"=>"error","message"=>"Email already exist!"]);
         }
-        
+        else{
+            $sql = "INSERT INTO users(email,password) VALUES ('$email','$password')";
+            try{
+                mysqli_query($conn,$sql);
+                echo json_encode(["status"=> "success","message"=> "Account created go and Login"]);
+            }
+            catch(mysqli_sql_exception){
+                echo json_encode(value: ["status" => "error", "message" => "Failed to create new Account"]);
+            }
+        }
 }
 }
 ?>
