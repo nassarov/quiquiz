@@ -20,7 +20,7 @@ loginForm.addEventListener("submit", async (e) => {
     const data = await response.json();
     if (data.status === "success") {
       alert(data.message);
-      window.localStorage.setItem("loggedUser", data.user.email);
+      window.localStorage.setItem("loggedUser", data.user.id);
       if (data.user.role === "admin") {
         window.location.replace(`${url}/quiquiz/dashboard.html`);
       } else {
