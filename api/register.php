@@ -9,7 +9,10 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
         // if already exist
         $check = "SELECT * FROM users WHERE email = '$email'";
         $result = mysqli_query(mysql: $conn, query: $check);
-       
+        if(mysqli_num_rows($result) > 0){
+            echo json_encode(["status"=>"error","message"=>"Email already exist!"]);
+        }
+        
 }
 }
 ?>
