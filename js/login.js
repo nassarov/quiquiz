@@ -24,7 +24,7 @@ loginForm.addEventListener("submit", async (e) => {
       if (data.user.role === "admin") {
         window.location.replace(`${url}/quiquiz/dashboard.html`);
       } else {
-        window.location.replace(`${url}/quiquiz/quiz.html`);
+        window.location.replace(`${url}/quiquiz/home.html`);
       }
     } else {
       // wrong cred
