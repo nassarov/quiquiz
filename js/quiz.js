@@ -67,19 +67,19 @@ function displayQuestion() {
       .then((res) => res.json())
       .then((optionsData) => {
         optionsData.options.forEach((option) => {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.classList.add("option");
+          const button = document.createElement("button");
+          button.type = "button";
+          button.classList.add("option");
           button.innerText = option.value;
           button.dataset.answer = option.value;
-      button.addEventListener("click", () => {
+          button.addEventListener("click", () => {
             handleOptionSelect(button, option.value);
-      });
-      container.appendChild(button);
-      allOptionsButtons.push(button);
-      console.log(allOptionsButtons);
-    });
-    startTimer();
+          });
+          container.appendChild(button);
+          allOptionsButtons.push(button);
+          console.log(allOptionsButtons);
+        });
+        startTimer();
       })
       .then(() => {
         correctAnswer = getCorrectAnswer(questionContent.id);
@@ -150,5 +150,18 @@ function checkAndSubmit() {
     displayQuestion();
   }, 2000);
 }
+
+function getQuestions() {
+  fetch(`${url}/quiquiz/api/getQuestions.php?quiz_id=${selectedId}`)
+    .then((response) => response.json())
+    .then((data) => {
+      questions = data.questions;
+      displayQuestion();
+    })
+    .catch((error) => {
+      console.error("Error fetching questions:", error);
+    });
+}
+
 submitButton.addEventListener("click", checkAndSubmit);
-window.onload = displayQuestion;
+window.onload = getQuestions;
