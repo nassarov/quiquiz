@@ -70,10 +70,10 @@ function displayQuestion() {
       const button = document.createElement("button");
       button.type = "button";
       button.classList.add("option");
-      button.innerText = option;
-      button.dataset.answer = option; //use dataset for each button
+          button.innerText = option.value;
+          button.dataset.answer = option.value;
       button.addEventListener("click", () => {
-        handleOptionSelect(button, option);
+            handleOptionSelect(button, option.value);
       });
       container.appendChild(button);
       allOptionsButtons.push(button);
