@@ -1,3 +1,4 @@
+import { url } from "./consts.js";
 const list = document.querySelector(".quiz-list");
 const logout = document.querySelector(".logout");
 const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
@@ -13,7 +14,7 @@ if (!loggedUser) {
 let quizzes = [];
 let results = [];
 function getQuizzes() {
-  fetch("http://localhost:8080/quiquiz/api/getQuizzes.php")
+  fetch(`${url}/quiquiz/api/getQuizzes.php`)
     .then((response) => {
       return response.json();
     })
@@ -24,7 +25,7 @@ function getQuizzes() {
 }
 function getScores() {
   const userId = loggedUser;
-  fetch(`http://localhost:8080/quiquiz/api/getScores.php?userId=${userId}`)
+  fetch(`${url}/quiquiz/api/getScores.php?userId=${userId}`)
     .then((response) => {
       return response.json();
     })
