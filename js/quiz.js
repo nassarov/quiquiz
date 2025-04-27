@@ -163,5 +163,18 @@ function getQuestions() {
     });
 }
 
+function getCorrectAnswer(questionId) {
+  fetch(`${url}/quiquiz/api/getCorrectAnswer.php?question_id=${questionId}`)
+    .then((response) => response.json())
+    .then((data) => {
+      correctAnswer = data.correct_answer;
+      return correctAnswer;
+    })
+    .catch((error) => {
+      console.error("Error fetching correct answer:", error);
+      return null;
+    });
+}
+
 submitButton.addEventListener("click", checkAndSubmit);
 window.onload = getQuestions;
