@@ -1,3 +1,4 @@
+import { url } from "./consts.js";
 let selectedId = localStorage.getItem("selectedQuiz");
 const container = document.getElementById("container");
 const form = document.getElementById("quiz-form");
@@ -9,15 +10,13 @@ const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
 if (!loggedUser) {
   window.location.replace("/quiquiz/index.html");
 }
-let email = JSON.parse(localStorage.getItem("loggedUser")).email;
+let user = JSON.parse(localStorage.getItem("loggedUser"));
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 });
-console.log(selectedId);
-let quizzes = JSON.parse(localStorage.getItem("quizzes"));
-let currentQuiz = quizzes.find((quiz) => quiz.id == selectedId);
 
+let questions = [];
 let questionIndex = 0;
 let selectedOption = null;
 let correctAnswer = null;
