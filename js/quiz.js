@@ -59,10 +59,14 @@ function displayQuestion() {
   if (questionIndex < questions.length) {
     const questionContent = questions[questionIndex];
     console.log(questionContent);
-    questionElement.innerText = questionContent.question;
-    correctAnswer = questionContent.answer;
-    allOptionsButtons = []; //suggested by ai to achieve good result
-    questionContent.options.forEach((option) => {
+    questionElement.innerText = questionContent.value;
+    correctAnswer = getCorrectAnswer(questionContent.id);
+    allOptionsButtons = [];
+
+    fetch(`${url}/quiquiz/api/getOptions.php?question_id=${questionContent.id}`)
+      .then((res) => res.json())
+      .then((optionsData) => {
+        optionsData.options.forEach((option) => {
       const button = document.createElement("button");
       button.type = "button";
       button.classList.add("option");
