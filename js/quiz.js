@@ -80,6 +80,10 @@ function displayQuestion() {
       console.log(allOptionsButtons);
     });
     startTimer();
+      })
+      .then(() => {
+        correctAnswer = getCorrectAnswer(questionContent.id);
+      });
   } else {
     questionElement.innerHTML =
       score !== 0
