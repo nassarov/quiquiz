@@ -56,8 +56,8 @@ function displayQuestion() {
   selectedOption = null;
   submitted = false; // reset
 
-  if (questionIndex < currentQuiz.questions.length) {
-    const questionContent = currentQuiz.questions[questionIndex];
+  if (questionIndex < questions.length) {
+    const questionContent = questions[questionIndex];
     console.log(questionContent);
     questionElement.innerText = questionContent.question;
     correctAnswer = questionContent.answer;
