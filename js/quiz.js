@@ -113,16 +113,13 @@ function displayQuestion() {
 
 function handleOptionSelect(button, option) {
   if (submitted) return; // if asnwer were already submitted
-
   container.querySelectorAll(".option.selected").forEach((btn) => {
     btn.classList.remove("selected");
   });
-
   button.classList.add("selected");
   selectedOption = option;
-  submitButton.disabled = false; //renable submit
+  submitButton.disabled = false;
 }
-
 function checkAndSubmit() {
   if (!selectedOption && seconds == 0) {
     selectedOption = ""; // Treat no selection as an answer
@@ -133,11 +130,10 @@ function checkAndSubmit() {
   allOptionsButtons.forEach((btn) => {
     btn.disabled = true;
     if (btn.dataset.answer === correctAnswer) {
-      // check dataset for the selected button
       btn.classList.add("correct");
     }
     if (
-      btn.dataset.answer === selectedOption && // loop over all button when dataset = selected and answer is false make it wrong
+      btn.dataset.answer === selectedOption &&
       selectedOption !== correctAnswer
     ) {
       btn.classList.add("wrong");
