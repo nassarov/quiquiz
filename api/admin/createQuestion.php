@@ -8,7 +8,8 @@ $sql = "INSERT INTO questions (quiz_id, value) VALUES (?, ?)";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("is", $quizId, $value);
 $stmt->execute();
-    
+
+
 $stmt->close();
 $conn->close();
 ?>
