@@ -85,32 +85,29 @@ function displayQuestion() {
         correctAnswer = getCorrectAnswer(questionContent.id);
       });
   } else {
-    questionElement.innerHTML =
-      score !== 0
-        ? `<h1>Quiz Finished!<h1><h2>Your Score:${score}/3<h2>`
-        : `<h1>Hard Luck!<h1><h2>Your Score:${score}/3<h2>`;
+    saveResults();
+    let message = "";
+    switch (score) {
+      case 3:
+        message = "Excellent!";
+        break;
+      case 2:
+        message = "Great Job!";
+        break;
+      case 1:
+        message = "Nice Try!";
+        break;
+      case 0:
+        message = "Hard Luck!";
+        break;
+      default:
+        message = "Quiz Finished!";
+    }
+    questionElement.innerHTML = `<h1>${message}<h1><h2>Your Score: ${score}/3</h2>`;
     container.innerHTML = "";
     submitButton.style.display = "none";
     clearInterval(timerInterval);
     console.log(`${score}/3`);
-    let existingResults = JSON.parse(localStorage.getItem("results")) || [];
-    let index = existingResults.findIndex(
-      (res) => res.quizId == selectedId && res.user == email
-    );
-
-    if (index !== -1) {
-      existingResults[index].score = score; // update if exists
-    } else {
-      existingResults.push({
-        user: email,
-        quizId: selectedId,
-        score: score,
-      });
-    }
-    localStorage.setItem("results", JSON.stringify(existingResults));
-    setTimeout(() => {
-      window.location.replace("/quiquiz/home.html");
-    }, 1500);
   }
 }
 
