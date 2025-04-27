@@ -175,6 +175,24 @@ function getCorrectAnswer(questionId) {
       return null;
     });
 }
-
+function saveResults() {
+  console.log("User object:", user);
+  fetch(`${url}/quiquiz/api/saveResult.php`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      user_id: user,
+      quiz_id: selectedId,
+      score: score,
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Result saved:", data);
+      window.location.replace("/quiquiz/home.html");
+    });
+}
 submitButton.addEventListener("click", checkAndSubmit);
 window.onload = getQuestions;
