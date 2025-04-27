@@ -1,12 +1,20 @@
 <?php
 require 'conn.php';
+header('Content-Type: application/json');
 
-$sql = "SELECT id, title FROM quizzes"; // Select only necessary columns
-$result = mysqli_query($conn,$sql);
+$sql = "SELECT quizzes.id, quizzes.title, COUNT(questions.id) AS num_questions
+        FROM quizzes 
+        LEFT JOIN questions  ON quizzes.id = questions.quiz_id
+        GROUP BY quizzes.id";
+$result = $conn->query($sql);
 
 $quizzes = [];
-while($row = mysqli_fetch_assoc($result)){
-    $quizzes[] = $row;
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $quizzes[] = $row;
+    }
 }
-echo json_encode(["quizzes"=>$quizzes]);
+
+echo json_encode(['quizzes' => $quizzes]);
+$conn->close();
 ?>
