@@ -63,11 +63,10 @@ function createQuizCard(title, score, quizId) {
   card.classList.add("quiz-card");
   card.innerHTML = `
     <h2>${title}</h2>
-    <p class="score">Your Score: <span class="score-value">${score}/3</span></p>
+    <p class="score">Highest Score: <span class="score-value">${score}/3</span></p>
     <button class="start-button" data-quiz-id="${quizId}">Start Quiz</button>
   `;
   list.appendChild(card);
 }
 
-// Start the process by getting the quizzes
 getQuizzes();
