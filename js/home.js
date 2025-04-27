@@ -43,7 +43,7 @@ function showQuizzes() {
       quizScore = result.score;
     }
     // create the card
-    createQuizCard(quiz.title, quizScore, quiz.id);
+    createQuizCard(quiz.title, quizScore, quiz.id, quiz.num_questions);
   });
 
   const startButtons = document.querySelectorAll(".start-button");
@@ -59,12 +59,12 @@ function showQuizzes() {
   });
 }
 
-function createQuizCard(title, score, quizId) {
+function createQuizCard(title, score, quizId, numQuestions) {
   const card = document.createElement("div");
   card.classList.add("quiz-card");
   card.innerHTML = `
     <h2>${title}</h2>
-    <p class="score">Highest Score: <span class="score-value">${score}/3</span></p>
+    <p class="score">Highest Score: <span class="score-value">${score}/${numQuestions}</span></p>
     <button class="start-button" data-quiz-id="${quizId}">Start Quiz</button>
   `;
   list.appendChild(card);

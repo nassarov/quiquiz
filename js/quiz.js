@@ -24,7 +24,7 @@ let allOptionsButtons = [];
 let timerInterval;
 let seconds = 9;
 let submitted = false;
-
+let numOfQuestion = 0;
 let score = 0;
 
 function startTimer() {
@@ -56,7 +56,7 @@ function displayQuestion() {
   selectedOption = null;
   submitted = false; // reset
 
-  if (questionIndex < questions.length) {
+  if (questionIndex < numOfQuestion) {
     const questionContent = questions[questionIndex];
     console.log(questionContent);
     questionElement.innerText = questionContent.value;
@@ -103,11 +103,11 @@ function displayQuestion() {
       default:
         message = "Quiz Finished!";
     }
-    questionElement.innerHTML = `<h1>${message}<h1><h2>Your Score: ${score}/3</h2>`;
+    questionElement.innerHTML = `<h1>${message}<h1><h2>Your Score: ${score}/${numOfQuestion}</h2>`;
     container.innerHTML = "";
     submitButton.style.display = "none";
     clearInterval(timerInterval);
-    console.log(`${score}/3`);
+    console.log(`${score}/${numOfQuestion}`);
   }
 }
 
@@ -156,6 +156,7 @@ function getQuestions() {
     .then((response) => response.json())
     .then((data) => {
       questions = data.questions;
+      numOfQuestion = questions.length;
       displayQuestion();
     })
     .catch((error) => {
