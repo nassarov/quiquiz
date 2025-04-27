@@ -2,11 +2,11 @@ const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
 
 // Role check: redirect if not admin
 if (!loggedUser) {
-  window.location.replace("/login.html");
-} else if (loggedUser.role !== "admin") {
-  window.location.replace("/home.html");
-} else {
+  window.location.replace("/quiquiz/login.html");
+} else if (loggedUser == "1") {
   console.log("Welcome, Admin!");
+} else {
+  window.location.replace("/quiquiz/home.html");
 }
 
 const container = document.getElementById("users-table");
